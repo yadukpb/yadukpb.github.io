@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yadukrishna PB</title>
+<meta name="description" content="Yadukrishna PB, backend-leaning full-stack engineer (Node.js, NestJS, React). Builds services that hold up when things fail.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #F2F4F1;
+  --surface: #FFFFFF;
+  --ink: #15201C;
+  --muted: #5A6862;
+  --line: #D6DDD9;
+  --accent: #2B47C9;
+  --accent-ink: #FFFFFF;
+  --ok: #1D7447;
+  --warn: #9A6310;
+  --bad: #B0362B;
+  --code-bg: #15201C;
+  --code-ink: #DCE6E1;
+  --code-dim: #7F948B;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 5vw, 48px);
+  --max: 1120px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1412;
+    --surface: #151D1A;
+    --ink: #E4ECE8;
+    --muted: #93A39C;
+    --line: #26322D;
+    --accent: #8EA2FF;
+    --accent-ink: #0E1412;
+    --ok: #5CC98E;
+    --warn: #E0A84A;
+    --bad: #F08274;
+    --code-bg: #090D0C;
+    --code-ink: #DCE6E1;
+    --code-dim: #6F837A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1412;
+  --surface: #151D1A;
+  --ink: #E4ECE8;
+  --muted: #93A39C;
+  --line: #26322D;
+  --accent: #8EA2FF;
+  --accent-ink: #0E1412;
+  --ok: #5CC98E;
+  --warn: #E0A84A;
+  --bad: #F08274;
+  --code-bg: #090D0C;
+  --code-ink: #DCE6E1;
+  --code-dim: #6F837A;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: -0.01em; }
+.brand span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+.nav-links a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--muted); }
+.nav-links a:hover { color: var(--ink); }
+.nav-tools { display: flex; align-items: center; gap: 8px; }
+.icon-btn {
+  display: inline-grid; place-items: center;
+  width: 40px; height: 40px;
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface); color: var(--ink); cursor: pointer;
+}
+.icon-btn svg { width: 18px; height: 18px; }
+.menu-btn { display: none; }
+.mobile-menu { display: none; }
+
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .menu-btn { display: inline-grid; }
+  .mobile-menu:not([hidden]) {
+    display: grid; gap: 4px;
+    padding-block: 8px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .mobile-menu a {
+    display: block; padding: 12px 4px;
+    text-decoration: none; font-weight: 500; font-size: 17px;
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu a:last-child { border-bottom: 0; }
+}
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(48px, 8vw, 96px) clamp(48px, 7vw, 88px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+.eyebrow {
+  font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 20%, transparent); }
+.hero h1 {
+  margin-top: 20px;
+  font-size: clamp(40px, 6.4vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 24px; font-size: clamp(17px, 1.6vw, 19px); color: var(--muted); max-width: 34em; }
+.hero .lede strong { color: var(--ink); font-weight: 600; }
+.cta-row { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px; border-radius: 10px;
+  font: 600 15px/1 var(--body); text-decoration: none; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+}
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { transform: translateY(-1px); }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: transform .15s ease; } }
+
+/* trace card */
+.trace {
+  background: var(--code-bg); color: var(--code-ink);
+  border-radius: 14px; overflow: hidden;
+  font-family: var(--mono); font-size: 13.5px; line-height: 1.7;
+  box-shadow: 0 24px 48px -24px rgba(10, 20, 16, 0.45);
+}
+.trace-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--code-dim); font-size: 12px;
+}
+.trace-tabs { display: flex; gap: 4px; }
+.trace-tabs button {
+  font: 500 12px/1 var(--mono); padding: 7px 10px; border-radius: 6px; cursor: pointer;
+  background: transparent; color: var(--code-dim); border: 1px solid rgba(255,255,255,0.1);
+}
+.trace-tabs button[aria-pressed="true"] { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); }
+.trace-body { padding: 16px; overflow-x: auto; min-height: 212px; }
+.trace-body .ln { white-space: pre; }
+.t-dim { color: var(--code-dim); }
+.t-key { color: #9DB1FF; }
+.t-ok { color: #5CC98E; }
+.t-warn { color: #E0A84A; }
+.t-bad { color: #F08274; }
+.trace-foot { padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--code-dim); font-size: 12px; font-family: var(--body); }
+.trace-foot a { color: #C9D3CE; }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---------- sections ---------- */
+section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: clamp(28px, 4vw, 44px); }
+.section-head h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.02em; }
+.section-head p { color: var(--muted); max-width: 32em; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* experience timeline */
+.timeline { display: grid; gap: 0; }
+.role {
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 32px;
+  padding-block: 32px; border-top: 1px solid var(--line);
+}
+.role:first-child { border-top: 0; padding-top: 0; }
+.role-meta { display: grid; gap: 6px; align-content: start; }
+.role-meta .company { font-family: var(--display); font-weight: 700; font-size: 22px; }
+.role-meta .where { color: var(--muted); font-size: 14px; }
+.dates { font-family: var(--mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.titles { display: grid; gap: 4px; margin-bottom: 16px; }
+.titles div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.titles strong { font-weight: 600; font-size: 17px; }
+.bullets { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 46em; }
+.bullets li { position: relative; padding-left: 20px; }
+.bullets li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 2px; background: var(--accent); }
+.metric { font-family: var(--mono); font-size: 0.92em; font-weight: 500; color: var(--ink); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+@media (max-width: 760px) {
+  .role { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+}
+
+/* projects */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.project {
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: 14px;
+  padding: 28px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface);
+}
+.project-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.tag {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 4px 8px; border-radius: 6px; border: 1px solid var(--line); color: var(--muted);
+}
+.tag-ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+.tag-warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+.project h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+.project p { color: var(--muted); }
+.stack { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.stack li { font-family: var(--mono); font-size: 12px; padding: 3px 8px; border-radius: 5px; background: var(--bg); color: var(--ink); }
+.project-link { font-weight: 600; font-size: 15px; color: var(--accent); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+.project-link:hover { text-decoration: underline; }
+.project-note { font-size: 14px; color: var(--muted); }
+@media (max-width: 760px) {
+  .projects { grid-template-columns: 1fr; }
+  .project { padding: 22px; }
+}
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 40px; }
+.skill-group h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 12px; }
+.skill-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-group li { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; background: var(--surface); }
+@media (max-width: 900px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .skills { grid-template-columns: 1fr; } }
+
+/* education + awards */
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); }
+.facts { list-style: none; margin: 0; padding: 0; display: grid; }
+.facts li { display: grid; grid-template-columns: auto 1fr; gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
+.facts li:first-child { border-top: 0; padding-top: 0; }
+.rank { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--accent); min-width: 2.2em; font-variant-numeric: tabular-nums; }
+.facts strong { display: block; font-weight: 600; }
+.facts span { color: var(--muted); font-size: 15px; }
+.edu { display: grid; gap: 6px; }
+.edu .school { font-family: var(--display); font-weight: 700; font-size: 24px; margin-top: 12px; }
+.edu p { color: var(--muted); }
+@media (max-width: 760px) { .two-col { grid-template-columns: minmax(0, 1fr); } }
+
+/* contact */
+.contact { background: var(--ink); color: var(--bg); border-top: 0; }
+.contact .section-head p, .contact .muted { color: color-mix(in srgb, var(--bg) 70%, var(--ink)); }
+.contact h2 { font-size: clamp(34px, 5.4vw, 60px); font-weight: 800; letter-spacing: -0.025em; max-width: 14em; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 40px; }
+.contact-card {
+  display: grid; gap: 8px; padding: 20px; border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--bg) 20%, transparent);
+  text-decoration: none; color: inherit; min-width: 0;
+}
+.contact-card:hover { border-color: color-mix(in srgb, var(--bg) 50%, transparent); }
+.contact-card .label { color: color-mix(in srgb, var(--bg) 65%, var(--ink)); }
+.contact-card .value { font-weight: 600; font-size: 17px; overflow-wrap: anywhere; user-select: all; }
+.copy-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.copy-btn {
+  font: 500 13px/1 var(--mono); padding: 8px 10px; border-radius: 6px; cursor: pointer;
+  background: transparent; color: inherit; border: 1px solid color-mix(in srgb, var(--bg) 30%, transparent);
+  flex-shrink: 0;
+}
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+
+footer { background: var(--ink); color: color-mix(in srgb, var(--bg) 60%, var(--ink)); font-size: 14px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 24px 32px; border-top: 1px solid color-mix(in srgb, var(--bg) 15%, transparent); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top">Yadu<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-tools">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Full-stack engineer · Node.js · NestJS · React</p>
+        <h1>I build backends that <em>hold up</em> when things fail.</h1>
+        <p class="lede">I'm <strong>Yadukrishna PB</strong>, a backend-leaning full-stack engineer at Vidyalai. I design services, data models, and the React UI on top of them. Lately I build tooling that stops AI agents from repeating a payment, a message, or a deploy after a call times out.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">See my projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <figure class="trace" aria-label="Example trace of a tool call being reconciled after a timeout">
+        <div class="trace-head">
+          <span>agent.log · refund tool</span>
+          <div class="trace-tabs" role="group" aria-label="Outcome">
+            <button type="button" data-outcome="verified" aria-pressed="true">verified</button>
+            <button type="button" data-outcome="failed" aria-pressed="false">failed</button>
+            <button type="button" data-outcome="unknown" aria-pressed="false">unknown</button>
+          </div>
+        </div>
+        <div class="trace-body" id="trace-body"></div>
+        <figcaption class="trace-foot">Reconcile before retry: the idea behind <a href="https://github.com/yadukpb/verified-tool" target="_blank" rel="noopener">verified-tool</a>. Pick an outcome.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Work</h2>
+        <p>Two years shipping to production on small teams, mostly in EdTech.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="role">
+          <div class="role-meta">
+            <span class="company">Vidyalai</span>
+            <span class="where">EdTech · Remote, India</span>
+          </div>
+          <div>
+            <div class="titles">
+              <div><strong>Full Stack Developer</strong><span class="dates">Jun 2025 – Present</span></div>
+              <div><strong>Full Stack Intern</strong><span class="dates">Jan 2025 – Jun 2025</span></div>
+            </div>
+            <ul class="bullets">
+              <li>Proposed and built an event-driven LLM + RAG service that turns customer calls, WhatsApp chats and emails into routed support tickets, using intent classification, vector retrieval and conversation history. Customer satisfaction rose <span class="metric">+70%</span>.</li>
+              <li>Designed and shipped an in-house CRM in about <span class="metric">1.5 months</span>, replacing core Freshworks workflows, with Twilio calling and the WhatsApp Business Cloud API built in.</li>
+              <li>Moved Indian phone numbers to Plivo routing, saving <span class="metric">$4K/yr</span> in telephony and contributing to <span class="metric">$12K/yr</span> in total infrastructure savings.</li>
+              <li>Led a rebuild of the team's out-of-date test suite across unit, integration and end-to-end tests so it could be trusted in everyday delivery.</li>
+              <li>Built a service purchase and checkout flow on Stripe, with a multi-step React form handling complex business rules.</li>
+              <li>Debugged production incidents across React, NestJS, MongoDB, Redis and third-party providers.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="role">
+          <div class="role-meta">
+            <span class="company">Fleeguide</span>
+            <span class="where">WhatsApp marketing · Remote, India</span>
+          </div>
+          <div>
+            <div class="titles">
+              <div><strong>Full Stack Intern</strong><span class="dates">Aug 2024 – Nov 2024</span></div>
+            </div>
+            <ul class="bullets">
+              <li>Built features across the MERN stack (React, Node.js, Express, MongoDB) for a WhatsApp marketing platform.</li>
+              <li>Wrote Cypress end-to-end tests reaching <span class="metric">~90%</span> coverage of the targeted workflows.</li>
+              <li>Debugged issues across frontend, API and database layers in production.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>Things I built outside work, mostly around AI agents and adaptive learning.</p>
+      </div>
+
+      <div class="projects">
+        <article class="project">
+          <div class="project-top"><span class="tag tag-ok">Open source</span><span class="label">TypeScript</span></div>
+          <h3>verified-tool</h3>
+          <p>A library that stops AI agents from re-running side effects after a lost response or a crash. It checks what actually happened before retrying and reports one of three outcomes to the model: verified, failed or unknown. Ships Postgres and Redis stores, a Vercel AI SDK adapter and an MCP proxy.</p>
+          <div>
+            <ul class="stack"><li>TypeScript</li><li>PostgreSQL</li><li>Redis</li><li>MCP</li><li>AI SDK</li></ul>
+            <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/verified-tool" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="tag">AI tutor</span><span class="label">TypeScript · NestJS · React</span></div>
+          <h3>Adaptive maths tutor</h3>
+          <p>A tutor for Class 3 maths where a Bayesian Knowledge Tracing engine and a prerequisite graph decide what to teach next, and the LLM only writes the words. Students answer on a whiteboard; pen strokes are recognised on the client with no vision model. Includes EM parameter fitting, forgetting decay and an eval harness with simulated students.</p>
+          <div>
+            <ul class="stack"><li>BKT</li><li>NestJS</li><li>React</li><li>Prisma</li><li>Gemini Live</li></ul>
+            <p class="project-note" style="margin-top:14px">Code available on request.</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="tag">Job search</span><span class="label">Python · React</span></div>
+          <h3>Job portal and resume toolkit</h3>
+          <p>A job portal for seekers and employers that grew into my own job-search tool: an ATS resume checker, a tracker that pulls listings from several job boards on a schedule, and an Overleaf-style LaTeX resume builder that tailors a resume to a job description and keeps it to one page.</p>
+          <div>
+            <ul class="stack"><li>Flask</li><li>PostgreSQL</li><li>React</li><li>APScheduler</li><li>LaTeX</li></ul>
+            <p class="project-note" style="margin-top:14px">Code available on request.</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="tag tag-warn">1st prize · Velohack 1.0</span><span class="label">MERN</span></div>
+          <h3>Digital outpass system</h3>
+          <p>Replaced my college's paper outpass process with an app: students request leave, wardens approve it, and the gate checks the pass. Built in a hackathon and won first place.</p>
+          <div>
+            <ul class="stack"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+            <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/college-outpass" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>What I use day to day, and what I reach for on the side.</p>
+      </div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul><li>Node.js</li><li>NestJS</li><li>Express</li><li>REST APIs</li><li>WebSockets</li><li>Microservices</li><li>Event-driven design</li><li>Python</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data &amp; infrastructure</h3>
+          <ul><li>MongoDB</li><li>PostgreSQL</li><li>Redis</li><li>AWS</li><li>Docker</li><li>CI/CD</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <ul><li>React</li><li>Next.js</li><li>Redux Toolkit</li><li>Tailwind CSS</li><li>Material UI</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>AI &amp; LLMs</h3>
+          <ul><li>LLM APIs</li><li>RAG</li><li>Vector search</li><li>Intent classification</li><li>Agent tool calling</li><li>MCP</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Testing</h3>
+          <ul><li>Unit &amp; integration</li><li>Cypress E2E</li><li>Vitest</li><li>TDD</li><li>Code review</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Languages &amp; security</h3>
+          <ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>JWT</li><li>RBAC</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap two-col">
+      <div>
+        <p class="label">Education</p>
+        <div class="edu">
+          <span class="school">IIIT Dharwad</span>
+          <p>B.Tech, Computer Science and Engineering</p>
+          <span class="dates">2021 – 2025</span>
+        </div>
+      </div>
+      <div>
+        <p class="label" style="margin-bottom:12px">Achievements</p>
+        <ul class="facts">
+          <li><span class="rank">1st</span><div><strong>Make-A-Ton 7.0</strong><span>An adaptive learning platform for children with dyslexia that personalises content to each learner.</span></div></li>
+          <li><span class="rank">1st</span><div><strong>Velohack 1.0</strong><span>A digital outpass system for the college.</span></div></li>
+          <li><span class="rank">C</span><div><strong>Football captain</strong><span>Led the college team at the Inter-IIIT tournament.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="label" style="color:inherit;opacity:.7">Contact</p>
+      <h2 style="margin-top:16px">Hiring for backend, full-stack or AI agent work? Let's talk.</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="label">Email</span>
+          <div class="copy-row">
+            <span class="value" id="email">yadukrishnapb1@gmail.com</span>
+            <button class="copy-btn" type="button" id="copy-email">Copy</button>
+          </div>
+        </div>
+        <a class="contact-card" href="https://github.com/yadukpb" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="value">github.com/yadukpb</span>
+        </a>
+        <a class="contact-card" href="https://linkedin.com/in/yadukrishna-pb" target="_blank" rel="noopener">
+          <span class="label">LinkedIn</span>
+          <span class="value">in/yadukrishna-pb</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Yadukrishna PB</span>
+    <span>Based in India · Open to remote</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Trace card: three outcomes of the same timed-out tool call.
+  var head = [
+    [['t-dim', '12:04:31  '], ['t-key', 'call '], ['', 'refund(ch_3Pq…, ₹4,900)']],
+    [['t-dim', '12:05:01  '], ['t-warn', 'timeout '], ['', 'no response after 30s']],
+    [['t-dim', '12:05:01  '], ['t-key', 'reconcile '], ['', 'GET /refunds?key=rf_81c2…']]
+  ];
+  var traces = {
+    verified: head.concat([
+      [['t-dim', '12:05:02  '], ['', 'found re_9Xa… status=succeeded']],
+      [],
+      [['t-ok', '✓ VERIFIED '], ['', 'refund already applied']],
+      [['t-dim', '  no retry, no double refund']]
+    ]),
+    failed: head.concat([
+      [['t-dim', '12:05:02  '], ['', 'no refund with this key']],
+      [],
+      [['t-bad', '✗ FAILED '], ['', 'safe to retry with the same key']],
+      [['t-dim', '  retry 1/3 → re_4Lm… succeeded']]
+    ]),
+    unknown: head.concat([
+      [['t-dim', '12:05:02  '], ['t-warn', '503 '], ['', 'status endpoint unavailable']],
+      [],
+      [['t-warn', '? UNKNOWN '], ['', 'do not retry blindly']],
+      [['t-dim', '  told the model; escalated to a human']]
+    ])
+  };
+  var body = document.getElementById('trace-body');
+  function render(name) {
+    body.textContent = '';
+    traces[name].forEach(function (parts) {
+      var line = document.createElement('div');
+      line.className = 'ln';
+      if (!parts.length) line.innerHTML = '&nbsp;';
+      parts.forEach(function (part) {
+        var span = document.createElement('span');
+        if (part[0]) span.className = part[0];
+        span.textContent = part[1];
+        line.appendChild(span);
+      });
+      body.appendChild(line);
+    });
+  }
+  var tabs = document.querySelectorAll('.trace-tabs button');
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      render(btn.dataset.outcome);
+    });
+  });
+  render('verified');
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', function () {
+    var open = menu.hidden;
+    menu.hidden = !open;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.hidden = true;
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  // Theme toggle
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var current = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // Copy email
+  var copyBtn = document.getElementById('copy-email');
+  copyBtn.addEventListener('click', function () {
+    var text = document.getElementById('email').textContent;
+    function done(msg) { copyBtn.textContent = msg; setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1600); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, function () { selectEmail(); done('Selected'); });
+    } else { selectEmail(); done('Selected'); }
+  });
+  function selectEmail() {
+    var range = document.createRange();
+    range.selectNodeContents(document.getElementById('email'));
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  }
+})();
+</script>
+</body>
+</html>
