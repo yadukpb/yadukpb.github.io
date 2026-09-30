@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yadukrishna PB</title>
-<meta name="description" content="Yadukrishna PB, backend-leaning full-stack engineer (Node.js, NestJS, React). Builds services that hold up when things fail.">
+<meta name="description" content="Yadukrishna PB, full-stack engineer (Node.js, NestJS, React) who built the support platform behind ~2,000 students a day at Vidyalai.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -323,7 +323,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <div>
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Full-stack engineer · Node.js · NestJS · React</p>
         <h1>I build backends that <em>hold up</em> when things fail.</h1>
-        <p class="lede">I'm <strong>Yadukrishna PB</strong>, a backend-leaning full-stack engineer at Vidyalai. I design services, data models, and the React UI on top of them. Lately I build tooling that stops AI agents from repeating a payment, a message, or a deploy after a call times out.</p>
+        <p class="lede">I'm <strong>Yadukrishna PB</strong>, a full-stack engineer at Vidyalai, where I built the support platform <strong>~2,000 students</strong> reach every day. I own features from schema to screen. On the side I build tooling that stops AI agents from charging, messaging or deploying twice when a call times out.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="#projects">See my projects</a>
           <a class="btn" href="#contact">Get in touch</a>
@@ -349,7 +349,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
     <div class="wrap">
       <div class="section-head">
         <h2>Work</h2>
-        <p>Two years shipping to production on small teams, mostly in EdTech.</p>
+        <p>Two years owning production systems end to end on small, fast-moving teams.</p>
       </div>
 
       <div class="timeline">
@@ -364,12 +364,14 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
               <div><strong>Full Stack Intern</strong><span class="dates">Jan 2025 – Jun 2025</span></div>
             </div>
             <ul class="bullets">
-              <li>Proposed and built an event-driven LLM + RAG service that turns customer calls, WhatsApp chats and emails into routed support tickets, using intent classification, vector retrieval and conversation history. Customer satisfaction rose <span class="metric">+70%</span>.</li>
-              <li>Designed and shipped an in-house CRM in about <span class="metric">1.5 months</span>, replacing core Freshworks workflows, with Twilio calling and the WhatsApp Business Cloud API built in.</li>
-              <li>Moved Indian phone numbers to Plivo routing, saving <span class="metric">$4K/yr</span> in telephony and contributing to <span class="metric">$12K/yr</span> in total infrastructure savings.</li>
-              <li>Led a rebuild of the team's out-of-date test suite across unit, integration and end-to-end tests so it could be trusted in everyday delivery.</li>
-              <li>Built a service purchase and checkout flow on Stripe, with a multi-step React form handling complex business rules.</li>
-              <li>Debugged production incidents across React, NestJS, MongoDB, Redis and third-party providers.</li>
+              <li><strong>Built the support desk behind <span class="metric">~2,000 students/day</span>.</strong> I spotted the gap and owned the intent-based ticketing system end to end: data model, architecture, backend and UI. Calls, WhatsApp and email land in one thread, and a student is recognised across all their phone numbers. RAG pulls up each student's history, so any executive can pick up a query cold. Query resolution became <span class="metric">40%</span> more efficient.</li>
+              <li><strong>Replaced Freshworks with our own CRM and saved <span class="metric">~$12K/yr</span>.</strong> I built lead assignment, conversations across WhatsApp, email and calls, canned responses, notes, search and ticketing, from schema to screen.</li>
+              <li><strong>Turned a manual sales process into self-service checkout.</strong> A state-machine-driven Stripe flow with multi-layer validation helped the product grow sales <span class="metric">40% year over year</span>.</li>
+              <li><strong>Moved video calls to AWS Chime at <span class="metric">10,000+ hrs/month</span>.</strong> I played a key role in the migration, then kept it reliable through monitoring, debugging and new features.</li>
+              <li><strong>Made failures safe with the Outbox pattern.</strong> A failed MongoDB write no longer fires a stray third-party call, and events are processed asynchronously and reliably across the codebase.</li>
+              <li><strong>Gave the team eyes on production.</strong> I introduced Prometheus, Loki and Sentry for metrics, centralised logs and error tracking, so incidents are traced from real data instead of guesswork.</li>
+              <li><strong>Shipped AI tools for support agents.</strong> Call transcription, RAG, OpenRouter and internal MCP tools bring the right customer context to agentic workflows automatically.</li>
+              <li><strong>Made the backend faster and cheaper.</strong> I built event-driven workflows on NestJS, MongoDB and Redis, tuned slow queries and cron jobs to cut server load, and consolidated Twilio, Plivo, AWS SES/S3 and Cloudflare Workers/R2 to trim external dependencies and cost.</li>
             </ul>
           </div>
         </article>
@@ -454,11 +456,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       <div class="skills">
         <div class="skill-group">
           <h3>Backend</h3>
-          <ul><li>Node.js</li><li>NestJS</li><li>Express</li><li>REST APIs</li><li>WebSockets</li><li>Microservices</li><li>Event-driven design</li><li>Python</li></ul>
+          <ul><li>Node.js</li><li>NestJS</li><li>Express</li><li>REST APIs</li><li>WebSockets</li><li>Event-driven design</li><li>Outbox pattern</li><li>Stripe</li><li>Twilio</li><li>Plivo</li></ul>
         </div>
         <div class="skill-group">
           <h3>Data &amp; infrastructure</h3>
-          <ul><li>MongoDB</li><li>PostgreSQL</li><li>Redis</li><li>AWS</li><li>Docker</li><li>CI/CD</li></ul>
+          <ul><li>MongoDB</li><li>PostgreSQL</li><li>Redis</li><li>AWS (S3, SES, Chime)</li><li>Cloudflare Workers &amp; R2</li><li>Docker</li><li>CI/CD</li></ul>
         </div>
         <div class="skill-group">
           <h3>Frontend</h3>
@@ -466,11 +468,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         </div>
         <div class="skill-group">
           <h3>AI &amp; LLMs</h3>
-          <ul><li>LLM APIs</li><li>RAG</li><li>Vector search</li><li>Intent classification</li><li>Agent tool calling</li><li>MCP</li></ul>
+          <ul><li>RAG</li><li>Semantic search</li><li>Intent classification</li><li>Call transcription</li><li>OpenRouter</li><li>MCP</li><li>Agent tool calling</li></ul>
         </div>
         <div class="skill-group">
-          <h3>Testing</h3>
-          <ul><li>Unit &amp; integration</li><li>Cypress E2E</li><li>Vitest</li><li>TDD</li><li>Code review</li></ul>
+          <h3>Testing &amp; observability</h3>
+          <ul><li>Prometheus</li><li>Loki</li><li>Sentry</li><li>Cypress E2E</li><li>Vitest</li><li>Unit &amp; integration</li></ul>
         </div>
         <div class="skill-group">
           <h3>Languages &amp; security</h3>
