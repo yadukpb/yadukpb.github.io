@@ -7,6 +7,7 @@ Personal portfolio site. A single static `index.html`: no build step, no depende
 - [verified-tool](https://github.com/yadukpb/verified-tool) — stops AI agents re-running side effects after a lost response or crash
 - Adaptive maths tutor — Bayesian Knowledge Tracing + prerequisite graph tutor for Class 3 maths
 - Job portal and resume toolkit — job portal, ATS checker, listings tracker, LaTeX resume builder
+- Dyslexia detection & adaptive learning — 1st prize, Make-A-Ton 7.0 (handwriting-based detection + adaptive content, built with a team)
 - [Digital outpass system](https://github.com/yadukpb/college-outpass) — 1st prize, Velohack 1.0
 - [Judge-Aware Eval Gate](https://github.com/yadukpb/judge-aware-eval-gate) — CI gate for LLM-agent evals using Dawid-Skene EM judge-reliability modeling + Sidak alpha-spending
 - [ADHD screener & daily coach](https://github.com/yadukpb/adhd-screener) — research-based screening plus an AI coach, planner, focus timer and habit tracking
