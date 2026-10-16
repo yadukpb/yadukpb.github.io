@@ -5,14 +5,14 @@
 <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yadukrishna PB</title>
-<meta name="description" content="Yadukrishna PB, AI full-stack developer (Node.js, NestJS, React) interested in agentic systems. Available to join immediately.">
+<meta name="description" content="Yadukrishna PB, AI full-stack developer (Python, TypeScript, Node.js, React) building AI agents. Available to join immediately.">
 <meta property="og:title" content="Yadukrishna PB — AI full-stack developer">
-<meta property="og:description" content="I build agentic systems and full-stack products — from schema to screen. At Vidyalai I built the support platform ~2,000 students use every day. Available to join immediately.">
+<meta property="og:description" content="I build AI agents and full-stack products in Python and TypeScript — hand-rolled tool-calling loops, RAG and production systems. Available to join immediately.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://yadukpb.github.io">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yadukrishna PB — AI full-stack developer">
-<meta name="twitter:description" content="AI full-stack developer interested in agentic systems. Available to join immediately.">
+<meta name="twitter:description" content="AI full-stack developer building AI agents in Python and TypeScript. Available to join immediately.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232B47C9'/%3E%3Ctext x='32' y='45' font-family='Arial, sans-serif' font-size='34' font-weight='800' fill='white' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -461,7 +461,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
         <div>
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Available to join immediately</p>
           <h1>Yadukrishna <em>PB</em></h1>
-          <p class="lede"><strong>AI full-stack developer.</strong> At Vidyalai I built the support platform <strong>~2,000 students</strong> reached every day, owning features from schema to screen. I work with Claude Code and Codex to ship faster, and I'm most interested in agentic systems: agents that call real tools and have to get it right.</p>
+          <p class="lede"><strong>AI full-stack developer.</strong> ~1 year building production systems at Vidyalai, now focused on AI agents: I write Python and TypeScript, build hand-rolled tool-calling loops and eval harnesses (see <strong>potato-agent</strong>), and I'm applying that toward agent frameworks like LangChain and LangGraph next. I work with Claude Code and Codex to ship faster.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="#projects">See my projects</a>
             <a class="btn" href="#contact">Get in touch</a>
@@ -490,8 +490,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>NestJS</span><span>MongoDB</span><span>Redis</span><span>React</span><span>AWS Chime</span><span>Stripe</span><span>Prometheus</span><span>Loki</span><span>Sentry</span><span>MCP</span><span>Claude Code</span><span>Codex</span><span>TypeScript</span><span>PostgreSQL</span>
-      <span>NestJS</span><span>MongoDB</span><span>Redis</span><span>React</span><span>AWS Chime</span><span>Stripe</span><span>Prometheus</span><span>Loki</span><span>Sentry</span><span>MCP</span><span>Claude Code</span><span>Codex</span><span>TypeScript</span><span>PostgreSQL</span>
+      <span>Python</span><span>AI agents</span><span>NestJS</span><span>MongoDB</span><span>Redis</span><span>React</span><span>AWS Chime</span><span>Stripe</span><span>Prometheus</span><span>Loki</span><span>Sentry</span><span>MCP</span><span>Claude Code</span><span>Codex</span><span>TypeScript</span><span>PostgreSQL</span>
+      <span>Python</span><span>AI agents</span><span>NestJS</span><span>MongoDB</span><span>Redis</span><span>React</span><span>AWS Chime</span><span>Stripe</span><span>Prometheus</span><span>Loki</span><span>Sentry</span><span>MCP</span><span>Claude Code</span><span>Codex</span><span>TypeScript</span><span>PostgreSQL</span>
     </div>
   </div>
 
@@ -503,15 +503,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
       </div>
       <noscript>
         <pre style="font-family:monospace;white-space:pre-wrap;">$ whoami
-yadukrishna — ai full-stack developer
+yadukrishna — ai full-stack developer, ~1yr experience
 
 $ status
 available: immediate · based in india
-tools: claude code, codex
+stack: python, typescript · tools: claude code, codex
 
-$ interests --sort=current
-1. agentic systems — tools that verify, not assume
-2. adaptive learning — models of what a student knows</pre>
+$ focus --sort=current
+1. ai agents — hand-rolled tool-calling loops (see potato-agent)
+2. next up — langchain, langgraph</pre>
       </noscript>
     </div>
   </section>
@@ -520,7 +520,7 @@ $ interests --sort=current
     <div class="wrap">
       <div class="section-head reveal">
         <h2>Work</h2>
-        <p>Two years owning production systems end to end on small, fast-moving teams.</p>
+        <p>About a year full-time owning production systems end to end, plus two internships before it.</p>
       </div>
 
       <div class="timeline" data-reveal-group>
@@ -577,6 +577,17 @@ $ interests --sort=current
       <div class="projects" data-reveal-group data-tilt-group>
         <article class="project reveal">
           <span class="project-index">01</span>
+          <div class="project-top"><span class="tag tag-ok">Open source</span><span class="label">Python</span></div>
+          <h3>potato-agent</h3>
+          <p>A fully agentic, voice-driven LLM that runs entirely on CPU: no GPU, no cloud API, no subscription. Speech-to-text, the LLM and text-to-speech feed a hand-rolled ReAct tool-calling loop (~80 lines of plain Python, deliberately no LangChain/LangGraph) with web search, a calculator, file ops and shell access as tools. Ships a benchmark harness, a tool-calling reliability eval, and a "Potato Leaderboard" of how weak a machine can run it.</p>
+          <div>
+            <ul class="stack"><li>Python</li><li>llama.cpp</li><li>faster-whisper</li><li>ReAct</li><li>Tool calling</li></ul>
+            <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/potato-agent" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <span class="project-index">02</span>
           <div class="project-top"><span class="tag tag-ok">Open source</span><span class="label">TypeScript</span></div>
           <h3>verified-tool</h3>
           <p>A library that stops AI agents from re-running side effects after a lost response or a crash. It checks what actually happened before retrying and reports one of three outcomes to the model: verified, failed or unknown. Ships Postgres and Redis stores, a Vercel AI SDK adapter and an MCP proxy.</p>
@@ -587,7 +598,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">02</span>
+          <span class="project-index">03</span>
           <div class="project-top"><span class="tag">AI tutor</span><span class="label">TypeScript · NestJS · React</span></div>
           <h3>Adaptive maths tutor</h3>
           <p>A tutor for Class 3 maths where a Bayesian Knowledge Tracing engine and a prerequisite graph decide what to teach next, and the LLM only writes the words. Students answer on a whiteboard; pen strokes are recognised on the client with no vision model. Includes EM parameter fitting, forgetting decay and an eval harness with simulated students.</p>
@@ -598,7 +609,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">03</span>
+          <span class="project-index">04</span>
           <div class="project-top"><span class="tag">Job search</span><span class="label">Python · React</span></div>
           <h3>Job portal and resume toolkit</h3>
           <p>A job portal for seekers and employers that grew into my own job-search tool: an ATS resume checker, a tracker that pulls listings from several job boards on a schedule, and an Overleaf-style LaTeX resume builder that tailors a resume to a job description and keeps it to one page.</p>
@@ -609,7 +620,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">04</span>
+          <span class="project-index">05</span>
           <div class="project-top"><span class="tag tag-warn">1st prize · Make-A-Ton 7.0</span><span class="label">React · ML</span></div>
           <h3>Dyslexia detection &amp; adaptive learning</h3>
           <p>A hackathon platform that screens children for dyslexia risk from handwriting samples plus teacher and parent questionnaires, then personalises learning content to each child's profile. Built with a team end to end: the detection/assessment flow, an adaptive-content engine, and separate teacher and parent dashboards. Won first place.</p>
@@ -620,7 +631,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">05</span>
+          <span class="project-index">06</span>
           <div class="project-top"><span class="tag tag-warn">1st prize · Velohack 1.0</span><span class="label">MERN</span></div>
           <h3>Digital outpass system</h3>
           <p>Replaced my college's paper outpass process with an app: students request leave, wardens approve it, and the gate checks the pass. Built in a hackathon and won first place.</p>
@@ -631,7 +642,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">06</span>
+          <span class="project-index">07</span>
           <div class="project-top"><span class="tag tag-ok">Open source</span><span class="label">Python</span></div>
           <h3>Judge-Aware Eval Gate</h3>
           <p>A CI gate for LLM-agent evals that separates judge unreliability from a real regression. A binary Dawid-Skene EM model jointly estimates each judge's sensitivity/specificity and the latent true pass rate with no ground truth required, and a Sidak alpha-spending budget keeps the gate's false-positive rate honest even when checked on every push -- unlike the popular eval tools, which gate on raw judge scores with a flat per-run p-value.</p>
@@ -642,7 +653,7 @@ $ interests --sort=current
         </article>
 
         <article class="project reveal">
-          <span class="project-index">07</span>
+          <span class="project-index">08</span>
           <div class="project-top"><span class="tag">Health &amp; AI</span><span class="label">React · Express · MongoDB</span></div>
           <h3>ADHD screener &amp; daily coach</h3>
           <p>A research-based ADHD screening and daily-management app: two validated questionnaires plus three timed browser tasks (go/no-go CPT, stop-signal, 2-back) score indicators against literature norms, every claim traced to a citation. Grew into a daily tool belt around that core: an AI coach with persistent memory and voice input, a visual planner, focus timer, and habit/medication check-ins with streak tracking, all behind real auth with a trend dashboard.</p>
@@ -663,6 +674,14 @@ $ interests --sort=current
       </div>
       <div class="skills" data-reveal-group>
         <div class="skill-group reveal">
+          <h3>AI &amp; agents</h3>
+          <ul><li>Agent tool calling</li><li>ReAct loops</li><li>RAG</li><li>Semantic search</li><li>Intent classification</li><li>MCP</li><li>OpenRouter</li><li>LangChain / LangGraph <span style="opacity:.6">(learning)</span></li><li>Claude Code</li><li>Codex</li></ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Languages</h3>
+          <ul><li>Python</li><li>TypeScript</li><li>JavaScript</li></ul>
+        </div>
+        <div class="skill-group reveal">
           <h3>Backend</h3>
           <ul><li>Node.js</li><li>NestJS</li><li>Express</li><li>REST APIs</li><li>WebSockets</li><li>Event-driven design</li><li>Outbox pattern</li><li>Stripe</li><li>Twilio</li><li>Plivo</li></ul>
         </div>
@@ -675,16 +694,8 @@ $ interests --sort=current
           <ul><li>React</li><li>Next.js</li><li>Redux Toolkit</li><li>Tailwind CSS</li><li>Material UI</li></ul>
         </div>
         <div class="skill-group reveal">
-          <h3>AI &amp; agents</h3>
-          <ul><li>RAG</li><li>Semantic search</li><li>Intent classification</li><li>Call transcription</li><li>OpenRouter</li><li>MCP</li><li>Agent tool calling</li><li>Claude Code</li><li>Codex</li></ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Testing &amp; observability</h3>
-          <ul><li>Prometheus</li><li>Loki</li><li>Sentry</li><li>Cypress E2E</li><li>Vitest</li><li>Unit &amp; integration</li></ul>
-        </div>
-        <div class="skill-group reveal">
-          <h3>Languages &amp; security</h3>
-          <ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>JWT</li><li>RBAC</li></ul>
+          <h3>Testing, observability &amp; security</h3>
+          <ul><li>Prometheus</li><li>Loki</li><li>Sentry</li><li>Cypress E2E</li><li>Vitest</li><li>JWT</li><li>RBAC</li></ul>
         </div>
       </div>
     </div>
@@ -893,13 +904,13 @@ $ interests --sort=current
   var consoleEl = document.getElementById('console');
   var lines = [
     { text: '$ whoami', cls: 'prompt' },
-    { text: 'yadukrishna — ai full-stack developer', cls: 'dim' },
+    { text: 'yadukrishna — ai full-stack developer, ~1yr experience', cls: 'dim' },
     { text: '$ status', cls: 'prompt' },
     { text: 'available: immediate · based in india', cls: 'dim' },
-    { text: 'tools: claude code, codex', cls: 'dim' },
-    { text: '$ interests --sort=current', cls: 'prompt' },
-    { text: '1. agentic systems — tools that verify, not assume', cls: 'dim' },
-    { text: '2. adaptive learning — models of what a student knows', cls: 'dim' }
+    { text: 'stack: python, typescript · tools: claude code, codex', cls: 'dim' },
+    { text: '$ focus --sort=current', cls: 'prompt' },
+    { text: '1. ai agents — hand-rolled tool-calling loops (see potato-agent)', cls: 'dim' },
+    { text: '2. next up — langchain, langgraph', cls: 'dim' }
   ];
   function renderConsoleStatic() {
     lines.forEach(function (l) {
