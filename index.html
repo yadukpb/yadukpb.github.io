@@ -427,6 +427,26 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
             <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/college-outpass" target="_blank" rel="noopener">View on GitHub →</a></p>
           </div>
         </article>
+
+        <article class="project">
+          <div class="project-top"><span class="tag tag-ok">Open source</span><span class="label">Python</span></div>
+          <h3>Judge-Aware Eval Gate</h3>
+          <p>A CI gate for LLM-agent evals that separates judge unreliability from a real regression. A binary Dawid-Skene EM model jointly estimates each judge's sensitivity/specificity and the latent true pass rate with no ground truth required, and a Sidak alpha-spending budget keeps the gate's false-positive rate honest even when checked on every push -- unlike the popular eval tools, which gate on raw judge scores with a flat per-run p-value.</p>
+          <div>
+            <ul class="stack"><li>Python</li><li>NumPy/SciPy</li><li>EM / Dawid-Skene</li><li>GitHub Actions</li></ul>
+            <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/judge-aware-eval-gate" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><span class="tag">Health &amp; AI</span><span class="label">React · Express · MongoDB</span></div>
+          <h3>ADHD screener &amp; daily coach</h3>
+          <p>A research-based ADHD screening and daily-management app: two validated questionnaires plus three timed browser tasks (go/no-go CPT, stop-signal, 2-back) score indicators against literature norms, every claim traced to a citation. Grew into a daily tool belt around that core: an AI coach with persistent memory and voice input, a visual planner, focus timer, and habit/medication check-ins with streak tracking, all behind real auth with a trend dashboard.</p>
+          <div>
+            <ul class="stack"><li>React</li><li>Express</li><li>MongoDB</li><li>JWT</li><li>Groq</li></ul>
+            <p class="project-note" style="margin-top:14px"><a class="project-link" href="https://github.com/yadukpb/adhd-screener" target="_blank" rel="noopener">View on GitHub →</a></p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
