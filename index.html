@@ -474,7 +474,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
             <div><dt><span class="pre">~</span><span class="num" data-target="2000" data-format="comma">0</span></dt><dd>conversations/day on the CRM platform I built end to end, replacing Freshworks</dd></div>
             <div><dt><span class="pre">$</span><span class="num" data-target="12">0</span><span class="suf">K/yr</span></dt><dd>saved by replacing Freshworks with our own CRM</dd></div>
             <div><dt><span class="num" data-target="10000" data-format="comma">0</span><span class="suf">+</span></dt><dd>hours of video calls a month after migrating off OpenTok to AWS Chime</dd></div>
-            <div><dt><span class="pre">+</span><span class="num" data-target="40">0</span><span class="suf">%</span></dt><dd>year-over-year sales after self-service checkout</dd></div>
+            <div><dt><span class="pre">+</span><span class="num" data-target="40">0</span><span class="suf">%</span></dt><dd>year-over-year sales after replacing manual checkout with an automated self-service workflow</dd></div>
           </dl>
           <p class="glance-foot">Full-stack, schema to screen: NestJS, MongoDB, Redis, React.</p>
         </figure>
@@ -537,7 +537,7 @@ $ focus --sort=current
             <ul class="bullets">
               <li><strong>Built the CRM and support platform behind <span class="metric">~2,000 conversations/day</span>.</strong> I spotted the gap and owned the intent-based ticketing and CRM login system end to end, schema to screen: data model, architecture, backend and UI. Calls, WhatsApp and email land in one thread, and a student is recognised across all their phone numbers. RAG pulls up each student's history, so any executive can pick up a query cold. Query resolution became <span class="metric">40%</span> more efficient.</li>
               <li><strong>Replaced Freshworks with our own CRM and saved <span class="metric">~$12K/yr</span>.</strong> I built lead assignment, conversations across WhatsApp, email and calls, canned responses, notes, search and ticketing, from schema to screen.</li>
-              <li><strong>Turned a manual sales process into self-service checkout.</strong> A state-machine-driven Stripe flow with multi-layer validation helped the product grow sales <span class="metric">40% year over year</span>.</li>
+              <li><strong>Replaced a manual sales process with an automated self-service checkout workflow.</strong> A state-machine-driven Stripe flow with multi-layer validation helped the product grow sales <span class="metric">40% year over year</span>.</li>
               <li><strong>Migrated video calls from OpenTok to AWS Chime at <span class="metric">10,000+ hrs/month</span>.</strong> I played a key role in the migration, then kept it reliable through monitoring, debugging and new features.</li>
               <li><strong>Made failures safe with the Outbox pattern.</strong> A failed MongoDB write no longer fires a stray third-party call, and events are processed asynchronously and reliably across the codebase.</li>
               <li><strong>Gave the team eyes on production.</strong> I introduced Prometheus, Loki and Sentry for metrics, centralised logs and error tracking, so incidents are traced from real data instead of guesswork.</li>
